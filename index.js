@@ -10,40 +10,36 @@ function initSearchBar() {
     searchForm.addEventListener('submit', (e) => {
         e.preventDefault();
         getDefinition(searchForm.querySelector('#word-search').value);
-        getPic(searchForm.querySelector('#word-search').value);
-        searchForm.reset();
+        e.target.reset();
     });
 }
 
 function getDefinition(word) {
     const wordDefList = document.querySelector('#word-def-list');
-    addSearchhist(word);
 
     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then(resp => resp.json()) 
     .then(wordInfo => {
-        wordDefList.innerHTML = '';
-        wordInfo.forEach(word => loadWord(word));
+        newSearch(wordInfo);
+        addSearchHist(wordInfo);
     });
 }
  
-function getPic(word) {
-    const wordDefList = document.querySelector('#word-def-list');
 
-    fetch()
+function newSearch(wordInfo) {
+    const wordDefList = document.querySelector('#word-def-list');
+    wordDefList.innerHTML = '';
+    
+    wordInfo.forEach(word => loadWord(word));
+
 }
 
 function loadWord(wordInfo) {
-    console.log('word: ', wordInfo)
-    
-    console.log('meaingsSrray: ', wordInfo.meanings);
     const meaningsArray = wordInfo.meanings;
-    
     const wordValue = document.querySelector('#word-value');
+    const wordDefList = document.querySelector('#word-def-list');
 
     wordValue.textContent = wordInfo.word;
-
-    const wordDefList = document.querySelector('#word-def-list');
 
     meaningsArray.forEach(meaning => {
         const partOfSpeech = document.createElement('h4');
@@ -60,20 +56,18 @@ function loadDef(meaning) {
     meaning.definitions.forEach(def => {
         const newDef = document.createElement('li');
         newDef.textContent = def.definition;
-        console.log('def:', newDef)
         wordDefList.appendChild(newDef);
 
     })
 }
 
-function addSearchhist(word) {
+function addSearchHist(wordInfo) {
     const searchList = document.querySelector('#search-hist-list');
-
     const newWord = document.createElement('li');
-    newWord.textContent = word;
+
+    newWord.textContent = wordInfo[0].word;
+    newWord.addEventListener('click', (e) => newSearch(wordInfo));
     searchList.appendChild(newWord);
 
 }
 
-//custom search ID key
-//AIzaSyAsYhoCqNPt2sTTnF9334fQm8vR3pQM3hA
