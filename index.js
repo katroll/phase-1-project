@@ -10,12 +10,14 @@ function initSearchBar() {
     searchForm.addEventListener('submit', (e) => {
         e.preventDefault();
         getDefinition(searchForm.querySelector('#word-search').value);
+        //getPic(searchForm.querySelector('#word-search').value);
         searchForm.reset();
     });
 }
 
 function getDefinition(word) {
     const wordDefList = document.querySelector('#word-def-list');
+    //addSearchhist(word);
 
     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then(resp => resp.json()) 
@@ -23,6 +25,12 @@ function getDefinition(word) {
         wordDefList.innerHTML = '';
         wordInfo.forEach(word => loadWord(word));
     });
+}
+ 
+function getPic(word) {
+    const wordDefList = document.querySelector('#word-def-list');
+
+    fetch()
 }
 
 function loadWord(wordInfo) {
@@ -57,3 +65,15 @@ function loadDef(meaning) {
 
     })
 }
+
+// function addSearchhist(word) {
+//     const searchList = document.querySelector('#search-hist-list');
+
+//     const newWord = document.createElement('li');
+//     newWord.textContent = word;
+//     searchList.appendChild(newWord);
+
+// }
+
+//custom search ID key
+//AIzaSyAsYhoCqNPt2sTTnF9334fQm8vR3pQM3hA
