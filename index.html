@@ -5,23 +5,28 @@
     <link rel="stylesheet" href="style.css"></link>
     </head>
     <body>
-        <div class = 'flex flex-col items-center bg-gradient h-screen'>
-             <div class='flex flex-col justify-center items-center shadow-md bg-white w-search-card rounded-md'>
-                <div>
-                    <h1>Dictionary</h1>
-                </div>
-                <div>
-                    <form id="search-form" action="" method="POST" class="form-padding">
-                        <label for="word-search">Word:</label>
-                        <input type="text" id="word-search" name="word-search" placeholder="Word">
-                        <input type="submit" value="Search">
-                    </form>
-                </div>
-                <div class ='w-profile-card'>
-                    <h3 id='word-value'></h3>
+        <div class='bg-gradient h-screen'>
+            <div class='bg-white w-hist-list bg-gradient list-padding rounded-md'>
+                <div id='search-hist-list'></div>
+            </div>
+            <div class='flex flex-col items-center'>
+                <div class='flex flex-col items-center justify-center shadow-md bg-white w-search-card rounded-md'>
                     <div>
-                        <ul id='word-def-list'></ul>
-                        <img>
+                        <h1>Dictionary</h1>
+                    </div>
+                    <div>
+                        <form id="search-form" action="" method="POST" class="form-padding">
+                            <label for="word-search">Word:</label>
+                            <input type="text" id="word-search" name="word-search" placeholder="Word">
+                            <input type="submit" value="Search">
+                        </form>
+                    </div>
+                    <div class ='w-profile-card'>
+                        <h3 id='word-value'></h3>
+                        <div>
+                            <ul id='word-def-list'></ul>
+                            <img>
+                        </div>
                     </div>
                 </div>
             </div>
