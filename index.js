@@ -22,6 +22,7 @@ function getDefinition(word) {
     .then(wordInfo => {
         newSearch(wordInfo);
         addSearchHist(wordInfo);
+        getPic(wordInfo);
     });
 }
  
@@ -71,3 +72,11 @@ function addSearchHist(wordInfo) {
 
 }
 
+
+function getPic(wordInfo) {
+    const searchImg = document.querySelector('#search-image');
+
+    fetch(`https://www.brandonfowler.me/gimgapi/?q=${wordInfo[0].word}&size=medium&num=1&format=array`, { mode: 'no-cors'})
+    .then(resp => resp.json())
+    .then(img => searchImg.src = img[0]);
+}
