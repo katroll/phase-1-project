@@ -30,6 +30,7 @@ function getDefinition(word) {
         newSearch(wordInfo);
         addSearchHist(wordInfo);
       }
+
     });
 }
 
@@ -82,3 +83,4 @@ function addSearchHist(wordInfo) {
 //     .then((res) => res.json())
 //     .then((img) => console.log(img));
 // };
+

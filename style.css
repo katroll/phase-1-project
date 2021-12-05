@@ -61,3 +61,17 @@ body {
   display: flex;
   justify-content: center;
 }
+
+
+.w-hist-list {
+    width: 200px;
+}
+
+.rounded-md {
+    border-radius: 12px;
+}
+
+.list-padding {
+    padding: 10px;
+}
+
