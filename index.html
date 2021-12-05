@@ -5,24 +5,23 @@
     <link rel="stylesheet" href="style.css"></link>
     </head>
     <body>
-        <div class='flex bg-gradient h-screen list-padding'>
-            <div class='bg-white w-hist-list bg-gradient list-padding rounded-md items-center justify-center'>
-                <h3 class='justify-center items-center'>Search History</h3>
+        <div id='background'>
+            <div id='search-history'>
+              <h3>Search History</h3>
                 <div id='search-hist-list'></div>
             </div>
-            <div class='flex flex-col items-center list-padding'>
-                <div class='flex flex-col items-center justify-center shadow-md bg-white w-search-card rounded-md'>
+            <div id='search-container'>
+                <div id='search'>
                     <div>
                         <h1>Dictionary</h1>
                     </div>
                     <div>
                         <form id="search-form" action="" method="POST" class="form-padding">
-                            <label for="word-search">Word:</label>
-                            <input type="text" id="word-search" name="word-search" placeholder="Word">
+                            <input type="text" id="word-search" name="word-search" placeholder="Search word">
                             <input type="submit" value="Search">
                         </form>
                     </div>
-                    <div class ='list-padding'>
+                    <div id ='list-padding'>
                         <h3 id='word-value'></h3>
                         <div>
                             <ul id='word-def-list'></ul>
