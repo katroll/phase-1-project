@@ -1,6 +1,7 @@
+html,
 body {
   margin: 0;
-  height: 100vh;
+  height: 100%;
 }
 
 #list-padding {
@@ -56,8 +57,14 @@ body {
   margin-bottom: 15px;
 }
 
-#word-search {
+#word-search,
+#t-word-search {
   border: 1px solid white;
+}
+
+#search-hist-list {
+  display: flex;
+  justify-content: center;
 }
 
 #word-value,
@@ -69,4 +76,11 @@ body {
 #t-list-padding {
   padding: 10px;
   padding-bottom: 50px;
+}
+
+.submitBtn,
+#clear-hist-btn {
+  color: white;
+  background-color: black;
+  border: 1px solid black;
 }
