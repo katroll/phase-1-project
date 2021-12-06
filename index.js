@@ -5,6 +5,7 @@ function init() {
   loadSearchHist();
 }
 
+
 function initSearchBar() {
   const searchForm = document.querySelector("#search-form");
 
