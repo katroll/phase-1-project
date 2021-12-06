@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", init);
 
 function init() {
   initSearchBar();
+  initTheSearchBar();
 }
 
 function initSearchBar() {
@@ -11,6 +12,16 @@ function initSearchBar() {
     e.preventDefault();
     getDefinition(searchForm.querySelector("#word-search").value);
     e.target.reset();
+  });
+}
+
+function initTheSearchBar() {
+  const searchForm = document.querySelector('#t-search-form')
+
+  searchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      loadSynonyms(searchForm.querySelector('#t-word-search').value);
+      e.target.reset();
   });
 }
 
@@ -75,11 +86,20 @@ function addSearchHist(wordInfo) {
   searchList.appendChild(newWord);
 }
 
-// const getPicture = (wordInfo) => {
-//   fetch(
-//     `https://www.brandonfowler.me/gimgapi/?q=${wordInfo[0].word}&num=10&size=&color=&reuse=&type=&time=&format=read/1/`
-//   )
-//     .then((res) => res.json())
-//     .then((img) => console.log(img));
-// };
+function loadSynonyms(word) {
+  const wordValue = document.querySelector("#t-word-value");
+  const wordSynList = document.querySelector("#synonym-list");
 
+  wordValue.textContent = word;
+
+  fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+  .then((resp) => resp.json())
+  .then((wordInfo) => {
+      const synonymsArray = wordInfo[0].meanings[0].definitions[0].synonyms;
+      synonymsArray.forEach((synonym) => {
+        const eachSynonym = document.createElement("li");
+        eachSynonym.textContent = synonym;
+        wordSynList.appendChild(eachSynonym);
+      });
+  })
+}
