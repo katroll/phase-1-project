@@ -2,6 +2,25 @@ document.addEventListener("DOMContentLoaded", init);
 
 function init() {
   initSearchBar();
+  loadSearchHist();
+}
+
+function loadSearchHist() {
+  const searchList = document.querySelector("#search-hist-list");
+
+  fetch('http://localhost:3000/words') 
+  .then(resp => resp.json())
+  .then(words => {
+    words.forEach( (word) => {
+      const newWord = document.createElement("li");
+      newWord.textContent = word[0].word;
+      newWord.classList.add("history-li");
+      newWord.addEventListener("click", (e) => newSearch(word));
+      searchList.appendChild(newWord);
+    }
+    )}
+  )
+
 }
 
 function initSearchBar() {
@@ -69,10 +88,21 @@ function addSearchHist(wordInfo) {
   const searchList = document.querySelector("#search-hist-list");
   const newWord = document.createElement("li");
 
-  newWord.textContent = wordInfo[0].word;
-  newWord.classList.add("history-li");
-  newWord.addEventListener("click", (e) => newSearch(wordInfo));
-  searchList.appendChild(newWord);
+  fetch('http://localhost:3000/words', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(wordInfo)
+  })
+    .then(resp => resp.json())
+    .then(wordInfo => {
+      newWord.textContent = wordInfo[0].word;
+      newWord.classList.add("history-li");
+      newWord.addEventListener("click", (e) => newSearch(wordInfo));
+      searchList.appendChild(newWord);
+    })
+  
+
+
 }
 
 // const getPicture = (wordInfo) => {
