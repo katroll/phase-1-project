@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", init);
 
 function init() {
   initSearchBar();
+  initTheSearchBar();
   loadSearchHist();
+
 }
 
 
@@ -16,8 +18,17 @@ function initSearchBar() {
   });
 }
 
-function getDefinition(word) {
+function initTheSearchBar() {
+  const searchForm = document.querySelector('#t-search-form')
 
+  searchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      loadSynonyms(searchForm.querySelector('#t-word-search').value);
+      e.target.reset();
+  });
+}
+
+function getDefinition(word) {
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then((resp) => resp.json())
     .then((wordInfo) => {
@@ -31,7 +42,6 @@ function getDefinition(word) {
         newSearch(wordInfo);
         postSearchHistory(wordInfo);
       }
-
     });
 }
 
@@ -73,8 +83,27 @@ function addSearchHist(wordInfo) {
 
   newWord.textContent = wordInfo[0].word;
   newWord.classList.add("history-li");
-  newWord.addEventListener("click", (e) => newSearch(wordInfo));
+  newWord.addEventListener("click", () => newSearch(wordInfo));
   searchList.appendChild(newWord);
+}
+
+
+function loadSynonyms(word) {
+  const wordValue = document.querySelector("#t-word-value");
+  const wordSynList = document.querySelector("#synonym-list");
+
+  wordValue.textContent = word;
+
+  fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+  .then((resp) => resp.json())
+  .then((wordInfo) => {
+      const synonymsArray = wordInfo[0].meanings[0].definitions[0].synonyms;
+      synonymsArray.forEach((synonym) => {
+        const eachSynonym = document.createElement("li");
+        eachSynonym.textContent = synonym;
+        wordSynList.appendChild(eachSynonym);
+      });
+  })
 }
 
 function postSearchHistory(wordInfo) {
@@ -111,9 +140,12 @@ function clearHist() {
 
 // const getPicture = (wordInfo) => {
 //   fetch(
-//     `https://www.brandonfowler.me/gimgapi/?q=${wordInfo[0].word}&num=10&size=&color=&reuse=&type=&time=&format=read/1/`
+//     `https://www.brandonfowler.me/gimgapi/?q=dog&num=10&size=&color=&reuse=&type=&time=&format=read/1/`,
+//     {}
 //   )
 //     .then((res) => res.json())
 //     .then((img) => console.log(img));
 // };
+
+// getPicture();
 
