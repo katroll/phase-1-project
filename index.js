@@ -7,6 +7,7 @@ function init() {
 
 function loadSearchHist() {
   const searchList = document.querySelector("#search-hist-list");
+  const clearBtn = document.querySelector("#clear-hist-btn");
 
   fetch('http://localhost:3000/words') 
   .then(resp => resp.json())
@@ -19,8 +20,16 @@ function loadSearchHist() {
       searchList.appendChild(newWord);
     }
     )}
-  )
+  );
+}
 
+function clearHist() {
+  fetch('http://localhost:3000/words', {
+    method: 'DELETE'
+  }) 
+  
+
+  
 }
 
 function initSearchBar() {
@@ -100,9 +109,6 @@ function addSearchHist(wordInfo) {
       newWord.addEventListener("click", (e) => newSearch(wordInfo));
       searchList.appendChild(newWord);
     })
-  
-
-
 }
 
 // const getPicture = (wordInfo) => {
