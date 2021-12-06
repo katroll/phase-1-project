@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", init);
 function init() {
   initSearchBar();
   initTheSearchBar();
+  loadSearchHist();
+
 }
 
 function initSearchBar() {
@@ -26,7 +28,6 @@ function initTheSearchBar() {
 }
 
 function getDefinition(word) {
-
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then((resp) => resp.json())
     .then((wordInfo) => {
@@ -38,9 +39,8 @@ function getDefinition(word) {
         document.querySelector("#word-value").textContent = wordInfo.message;
       } else {
         newSearch(wordInfo);
-        addSearchHist(wordInfo);
+        postSearchHistory(wordInfo);
       }
-
     });
 }
 
@@ -82,9 +82,10 @@ function addSearchHist(wordInfo) {
 
   newWord.textContent = wordInfo[0].word;
   newWord.classList.add("history-li");
-  newWord.addEventListener("click", (e) => newSearch(wordInfo));
+  newWord.addEventListener("click", () => newSearch(wordInfo));
   searchList.appendChild(newWord);
 }
+
 
 function loadSynonyms(word) {
   const wordValue = document.querySelector("#t-word-value");
@@ -103,3 +104,47 @@ function loadSynonyms(word) {
       });
   })
 }
+
+function postSearchHistory(wordInfo) {
+  fetch('http://localhost:3000/words', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(wordInfo)
+  })
+  .then(resp => resp.json())
+  .then(wordInfo => addSearchHist(wordInfo))
+
+}
+
+function loadSearchHist() {
+  const searchList = document.querySelector("#search-hist-list");
+  const clearBtn = document.querySelector("#clear-hist-btn");
+
+  fetch('http://localhost:3000/words') 
+  .then(resp => resp.json())
+  .then(words => {
+    words.forEach( (word) => {
+      addSearchHist(word);
+    }
+    )}
+  );
+}
+
+function clearHist() {
+  fetch('http://localhost:3000/words', {
+    method: 'DELETE'
+  }) 
+  
+}
+
+// const getPicture = (wordInfo) => {
+//   fetch(
+//     `https://www.brandonfowler.me/gimgapi/?q=dog&num=10&size=&color=&reuse=&type=&time=&format=read/1/`,
+//     {}
+//   )
+//     .then((res) => res.json())
+//     .then((img) => console.log(img));
+// };
+
+// getPicture();
+
