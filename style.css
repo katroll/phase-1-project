@@ -62,16 +62,32 @@ body {
   justify-content: center;
 }
 
-
-.w-hist-list {
-    width: 200px;
+#t-search {
+  width: 1000px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(208, 208, 211);
+  padding: 10px;
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 25%);
 }
 
-.rounded-md {
-    border-radius: 12px;
+
+#t-word-value {
+  display: flex;
+  justify-content: center;
 }
 
-.list-padding {
-    padding: 10px;
+#word-search {
+  border: 1px solid white;
 }
+
+#t-list-padding {
+  padding: 10px;
+  padding-bottom: 50px;
+}
+
+
 

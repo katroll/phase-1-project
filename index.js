@@ -15,7 +15,6 @@ function initSearchBar() {
 }
 
 function getDefinition(word) {
-  const wordDefList = document.querySelector("#word-def-list");
 
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then((resp) => resp.json())
@@ -76,9 +75,9 @@ function addSearchHist(wordInfo) {
   searchList.appendChild(newWord);
 }
 
-// const getPicture = () => {
+// const getPicture = (wordInfo) => {
 //   fetch(
-//     `https://www.brandonfowler.me/gimgapi/?q=${word}&num=10&size=&color=&reuse=&type=&time=&format=read/1/`
+//     `https://www.brandonfowler.me/gimgapi/?q=${wordInfo[0].word}&num=10&size=&color=&reuse=&type=&time=&format=read/1/`
 //   )
 //     .then((res) => res.json())
 //     .then((img) => console.log(img));
