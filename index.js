@@ -16,7 +16,6 @@ function initSearchBar() {
 }
 
 function getDefinition(word) {
-
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then((resp) => resp.json())
     .then((wordInfo) => {
@@ -30,7 +29,6 @@ function getDefinition(word) {
         newSearch(wordInfo);
         postSearchHistory(wordInfo);
       }
-
     });
 }
 
@@ -72,7 +70,7 @@ function addSearchHist(wordInfo) {
 
   newWord.textContent = wordInfo[0].word;
   newWord.classList.add("history-li");
-  newWord.addEventListener("click", (e) => newSearch(wordInfo));
+  newWord.addEventListener("click", () => newSearch(wordInfo));
   searchList.appendChild(newWord);
 }
 
@@ -110,9 +108,11 @@ function clearHist() {
 
 // const getPicture = (wordInfo) => {
 //   fetch(
-//     `https://www.brandonfowler.me/gimgapi/?q=${wordInfo[0].word}&num=10&size=&color=&reuse=&type=&time=&format=read/1/`
+//     `https://www.brandonfowler.me/gimgapi/?q=dog&num=10&size=&color=&reuse=&type=&time=&format=read/1/`,
+//     {}
 //   )
 //     .then((res) => res.json())
 //     .then((img) => console.log(img));
 // };
 
+// getPicture();
