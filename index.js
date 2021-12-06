@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", init);
 
 function init() {
   initSearchBar();
+  loadSearchHist();
 }
 
 function initSearchBar() {
@@ -26,7 +27,7 @@ function getDefinition(word) {
         document.querySelector("#word-value").textContent = wordInfo.message;
       } else {
         newSearch(wordInfo);
-        addSearchHist(wordInfo);
+        postSearchHistory(wordInfo);
       }
     });
 }
@@ -71,6 +72,38 @@ function addSearchHist(wordInfo) {
   newWord.classList.add("history-li");
   newWord.addEventListener("click", () => newSearch(wordInfo));
   searchList.appendChild(newWord);
+}
+
+function postSearchHistory(wordInfo) {
+  fetch('http://localhost:3000/words', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(wordInfo)
+  })
+  .then(resp => resp.json())
+  .then(wordInfo => addSearchHist(wordInfo))
+
+}
+
+function loadSearchHist() {
+  const searchList = document.querySelector("#search-hist-list");
+  const clearBtn = document.querySelector("#clear-hist-btn");
+
+  fetch('http://localhost:3000/words') 
+  .then(resp => resp.json())
+  .then(words => {
+    words.forEach( (word) => {
+      addSearchHist(word);
+    }
+    )}
+  );
+}
+
+function clearHist() {
+  fetch('http://localhost:3000/words', {
+    method: 'DELETE'
+  }) 
+  
 }
 
 // const getPicture = (wordInfo) => {
