@@ -103,6 +103,7 @@ function loadSynonyms(word) {
         eachSynonym.textContent = synonym;
         eachSynonym.classList.add("syn-list-item");
         wordSynList.appendChild(eachSynonym);
+        console.log(wordInfo);
 
         eachSynonym.addEventListener("click", () => {
           getDefinition(eachSynonym.textContent);
@@ -112,9 +113,10 @@ function loadSynonyms(word) {
 }
 
 function postSearchHistory(wordInfo) {
-  fetch("http://localhost:3000/words", {
+  fetch("http://localhost:3000/words/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
+    params: { _limit: 2 },
     body: JSON.stringify(wordInfo),
   })
     .then((resp) => resp.json())
