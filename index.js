@@ -4,6 +4,21 @@ function init() {
   initSearchBar();
   initThesaurusSearchBar();
   loadSearchHist();
+  loadRandomDef();
+}
+
+function loadRandomDef() {
+  fetch('https://random-word-api.herokuapp.com/word?number=1') 
+  .then(resp => resp.json()) 
+  .then(word => {
+
+    getDefinition(word, false).then(wordOk => {
+      console.log('then: ', wordOk)
+      if(!wordOk) {
+        loadRandomDef();
+      }
+    })
+  })
 }
 
 function initSearchBar() {
@@ -11,7 +26,7 @@ function initSearchBar() {
 
   searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    getDefinition(searchForm.querySelector("#word-search").value);
+    getDefinition(searchForm.querySelector("#word-search").value, true);
     e.target.reset();
   });
 }
@@ -26,21 +41,23 @@ function initThesaurusSearchBar() {
     loadSynonyms(searchForm.querySelector("#t-word-search").value);
     e.target.reset();
   });
+
 }
 
-function getDefinition(word) {
-  fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+function getDefinition(word, updateDom) {
+  return fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then((resp) => resp.json())
     .then((wordInfo) => {
-      if (
-        wordInfo.message ===
-        "Sorry pal, we couldn't find definitions for the word you were looking for."
-      ) {
-        document.querySelector("#word-def-list").innerHTML = "";
-        document.querySelector("#word-value").textContent = wordInfo.message;
+      if (wordInfo.message === "Sorry pal, we couldn't find definitions for the word you were looking for.") {
+        if(updateDom) {
+          document.querySelector("#word-def-list").innerHTML = "";
+          document.querySelector("#word-value").textContent = wordInfo.message;
+        }
+        return false;
       } else {
         newSearch(wordInfo);
         postSearchHistory(wordInfo);
+        return true;
       }
     })
     .catch((error) => error.message);
@@ -125,7 +142,7 @@ function loadSynonyms(word) {
               wordSynList.appendChild(eachSynonym);
 
               eachSynonym.addEventListener("click", () => {
-              getDefinition(eachSynonym.textContent);
+              getDefinition(eachSynonym.textContent, true);
             });
           });
         })
