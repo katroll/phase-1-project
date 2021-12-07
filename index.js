@@ -133,19 +133,22 @@ function loadSearchHist() {
     .then((words) => {
       words.forEach((word) => {
         addSearchHist(word);
-
-        clearBtn.addEventListener("click", () => {
-          searchList.innerHTML = "";
-          clearHist(words);
-          console.log(words);
-        });
       });
-    })
-    .catch((error) => error.message);
+      clearBtn.addEventListener("click", () => {
+        searchList.innerHTML = "";
+        for (let i = 0; i < 20; i++) {
+          try {
+            clearHist(i);
+          } catch {
+            console.log("skipped");
+          }
+        }
+      });
+    });
 }
 
-function clearHist() {
-  fetch(`http://localhost:3000/words/`, {
+function clearHist(id) {
+  fetch(`http://localhost:3000/words/${id}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
   });
