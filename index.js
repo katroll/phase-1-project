@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", init);
 
 function init() {
   initSearchBar();
+  initTheSearchBar();
   loadSearchHist();
+
 }
 
 function initSearchBar() {
@@ -12,6 +14,16 @@ function initSearchBar() {
     e.preventDefault();
     getDefinition(searchForm.querySelector("#word-search").value);
     e.target.reset();
+  });
+}
+
+function initTheSearchBar() {
+  const searchForm = document.querySelector('#t-search-form')
+
+  searchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      loadSynonyms(searchForm.querySelector('#t-word-search').value);
+      e.target.reset();
   });
 }
 
@@ -74,6 +86,25 @@ function addSearchHist(wordInfo) {
   searchList.appendChild(newWord);
 }
 
+
+function loadSynonyms(word) {
+  const wordValue = document.querySelector("#t-word-value");
+  const wordSynList = document.querySelector("#synonym-list");
+
+  wordValue.textContent = word;
+
+  fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+  .then((resp) => resp.json())
+  .then((wordInfo) => {
+      const synonymsArray = wordInfo[0].meanings[0].definitions[0].synonyms;
+      synonymsArray.forEach((synonym) => {
+        const eachSynonym = document.createElement("li");
+        eachSynonym.textContent = synonym;
+        wordSynList.appendChild(eachSynonym);
+      });
+  })
+}
+
 function postSearchHistory(wordInfo) {
   fetch('http://localhost:3000/words', {
     method: 'POST',
@@ -116,3 +147,4 @@ function clearHist() {
 // };
 
 // getPicture();
+
