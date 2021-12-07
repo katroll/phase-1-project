@@ -1,54 +1,119 @@
 {
   "words": [
-    [
-      {
-        "word": "naff",
-        "phonetic": "naf",
-        "phonetics": [
-          {
-            "text": "naf",
-            "audio": "//ssl.gstatic.com/dictionary/static/sounds/20200429/naff--_gb_1.mp3"
-          }
-        ],
-        "origin": "1950s: euphemism for fuck; compare with eff.",
-        "meanings": [
-          {
-            "partOfSpeech": "verb",
-            "definitions": [
-              {
-                "definition": "go away.",
-                "example": "she told press photographers to naff off",
-                "synonyms": [],
-                "antonyms": []
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "word": "naff",
-        "phonetic": "naf",
-        "phonetics": [
-          {
-            "text": "naf",
-            "audio": "//ssl.gstatic.com/dictionary/static/sounds/20200429/naff--_gb_1.mp3"
-          }
-        ],
-        "origin": "1960s: perhaps from Polari.",
-        "meanings": [
-          {
-            "partOfSpeech": "adjective",
-            "definitions": [
-              {
-                "definition": "lacking taste or style.",
-                "example": "he always went for the most obvious melody he could get, no matter how naff it sounded",
-                "synonyms": [],
-                "antonyms": []
-              }
-            ]
-          }
-        ]
-      }
-    ]
+    {
+      "word": [
+        {
+          "word": "dog",
+          "phonetic": "dɒɡ",
+          "phonetics": [
+            {
+              "text": "dɒɡ",
+              "audio": "//ssl.gstatic.com/dictionary/static/sounds/20200429/dog--_gb_2.mp3"
+            }
+          ],
+          "origin": "Old English docga, of unknown origin.",
+          "meanings": [
+            {
+              "partOfSpeech": "noun",
+              "definitions": [
+                {
+                  "definition": "a domesticated carnivorous mammal that typically has a long snout, an acute sense of smell, non-retractable claws, and a barking, howling, or whining voice.",
+                  "synonyms": [
+                    "canine",
+                    "hound",
+                    "mongrel",
+                    "cur",
+                    "tyke",
+                    "bitch",
+                    "pup",
+                    "puppy",
+                    "whelp",
+                    "doggy",
+                    "pooch",
+                    "mutt",
+                    "pupper",
+                    "doggo",
+                    "man's best friend",
+                    "Rover",
+                    "Fido",
+                    "mong",
+                    "bitzer"
+                  ],
+                  "antonyms": []
+                },
+                {
+                  "definition": "an unpleasant, contemptible, or wicked man.",
+                  "example": "he was interrupted by cries of ‘dirty dog!’",
+                  "synonyms": [],
+                  "antonyms": []
+                },
+                {
+                  "definition": "used in names of dogfishes, e.g. sandy dog, spur-dog.",
+                  "synonyms": [],
+                  "antonyms": []
+                },
+                {
+                  "definition": "a mechanical device for gripping.",
+                  "synonyms": [],
+                  "antonyms": []
+                },
+                {
+                  "definition": "feet.",
+                  "synonyms": [],
+                  "antonyms": []
+                },
+                {
+                  "definition": "barriers used to keep horses off a particular part of the track.",
+                  "synonyms": [],
+                  "antonyms": []
+                }
+              ]
+            },
+            {
+              "partOfSpeech": "verb",
+              "definitions": [
+                {
+                  "definition": "follow (someone) closely and persistently.",
+                  "example": "photographers seemed to dog her every step",
+                  "synonyms": [
+                    "pursue",
+                    "follow",
+                    "stalk",
+                    "track",
+                    "trail",
+                    "shadow",
+                    "hound",
+                    "plague",
+                    "beset",
+                    "bedevil",
+                    "assail",
+                    "beleaguer",
+                    "blight",
+                    "trouble",
+                    "torment",
+                    "haunt",
+                    "tail"
+                  ],
+                  "antonyms": []
+                },
+                {
+                  "definition": "act lazily; fail to try one's hardest.",
+                  "example": "Eric had a reputation for dogging it a little",
+                  "synonyms": [],
+                  "antonyms": []
+                },
+                {
+                  "definition": "grip (something) with a mechanical device.",
+                  "example": "she has dogged the door shut",
+                  "synonyms": [],
+                  "antonyms": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "id": 1
+    }
   ]
 }

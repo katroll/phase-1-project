@@ -44,6 +44,7 @@ function initThesaurusSearchBar() {
 
 }
 
+
 function getDefinition(word, updateDom) {
   return fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then((resp) => resp.json())
@@ -164,7 +165,7 @@ function postSearchHistory(wordInfo) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     params: { _limit: 2 },
-    body: JSON.stringify(wordInfo),
+    body: JSON.stringify({'word': wordInfo}),
   })
     .then((resp) => resp.json())
     .then((wordInfo) => addSearchHist(wordInfo))
