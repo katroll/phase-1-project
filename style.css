@@ -1,7 +1,8 @@
 html,
 body {
   margin: 0;
-  height: 100%;
+  min-height: 100%;
+  background: #272d5e;
 }
 
 #list-padding {
@@ -11,8 +12,8 @@ body {
 
 #background {
   display: flex;
-  background: linear-gradient(45deg, #405474, #272d5e);
   height: 100%;
+  background-repeat: repeat;
 }
 
 #search-history {
@@ -45,7 +46,7 @@ body {
 
 #search,
 #t-search {
-  width: 1000px;
+  width: 800px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -65,6 +66,7 @@ body {
 #search-hist-list {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 #word-value,
@@ -78,9 +80,26 @@ body {
   padding-bottom: 50px;
 }
 
+#synonym-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .submitBtn,
 #clear-hist-btn {
   color: white;
   background-color: black;
   border: 1px solid black;
+}
+
+#clear-hist-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.syn-list-item {
+  width: 140px;
+  height: 40px;
+  list-style: none;
 }

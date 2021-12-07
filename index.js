@@ -2,9 +2,8 @@ document.addEventListener("DOMContentLoaded", init);
 
 function init() {
   initSearchBar();
-  initTheSearchBar();
+  initThesaurusSearchBar();
   loadSearchHist();
-
 }
 
 function initSearchBar() {
@@ -17,13 +16,15 @@ function initSearchBar() {
   });
 }
 
-function initTheSearchBar() {
-  const searchForm = document.querySelector('#t-search-form')
+function initThesaurusSearchBar() {
+  const searchForm = document.querySelector("#t-search-form");
+  const thesList = document.querySelector("#synonym-list");
 
-  searchForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      loadSynonyms(searchForm.querySelector('#t-word-search').value);
-      e.target.reset();
+  searchForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    thesList.innerHTML = "";
+    loadSynonyms(searchForm.querySelector("#t-word-search").value);
+    e.target.reset();
   });
 }
 
@@ -41,7 +42,8 @@ function getDefinition(word) {
         newSearch(wordInfo);
         postSearchHistory(wordInfo);
       }
-    });
+    })
+    .catch((error) => error.message);
 }
 
 function newSearch(wordInfo) {
@@ -86,7 +88,6 @@ function addSearchHist(wordInfo) {
   searchList.appendChild(newWord);
 }
 
-
 function loadSynonyms(word) {
   const wordValue = document.querySelector("#t-word-value");
   const wordSynList = document.querySelector("#synonym-list");
@@ -94,47 +95,58 @@ function loadSynonyms(word) {
   wordValue.textContent = word;
 
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
-  .then((resp) => resp.json())
-  .then((wordInfo) => {
+    .then((resp) => resp.json())
+    .then((wordInfo) => {
       const synonymsArray = wordInfo[0].meanings[0].definitions[0].synonyms;
       synonymsArray.forEach((synonym) => {
         const eachSynonym = document.createElement("li");
         eachSynonym.textContent = synonym;
+        eachSynonym.classList.add("syn-list-item");
         wordSynList.appendChild(eachSynonym);
+
+        eachSynonym.addEventListener("click", () => {
+          getDefinition(eachSynonym.textContent);
+        });
       });
-  })
+    });
 }
 
 function postSearchHistory(wordInfo) {
-  fetch('http://localhost:3000/words', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(wordInfo)
+  fetch("http://localhost:3000/words", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(wordInfo),
   })
-  .then(resp => resp.json())
-  .then(wordInfo => addSearchHist(wordInfo))
-
+    .then((resp) => resp.json())
+    .then((wordInfo) => addSearchHist(wordInfo))
+    .catch((error) => error.message);
 }
 
 function loadSearchHist() {
   const searchList = document.querySelector("#search-hist-list");
   const clearBtn = document.querySelector("#clear-hist-btn");
 
-  fetch('http://localhost:3000/words') 
-  .then(resp => resp.json())
-  .then(words => {
-    words.forEach( (word) => {
-      addSearchHist(word);
-    }
-    )}
-  );
+  fetch("http://localhost:3000/words")
+    .then((resp) => resp.json())
+    .then((words) => {
+      words.forEach((word) => {
+        addSearchHist(word);
+
+        clearBtn.addEventListener("click", () => {
+          searchList.innerHTML = "";
+          clearHist(words);
+          console.log(words);
+        });
+      });
+    })
+    .catch((error) => error.message);
 }
 
 function clearHist() {
-  fetch('http://localhost:3000/words', {
-    method: 'DELETE'
-  }) 
-  
+  fetch(`http://localhost:3000/words/`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  });
 }
 
 // const getPicture = (wordInfo) => {
@@ -147,4 +159,3 @@ function clearHist() {
 // };
 
 // getPicture();
-
