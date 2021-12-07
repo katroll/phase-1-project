@@ -50,6 +50,7 @@ function newSearch(wordInfo) {
   const wordDefList = document.querySelector("#word-def-list");
   wordDefList.innerHTML = "";
 
+
   wordInfo.forEach((word) => loadWord(word));
 }
 
@@ -60,8 +61,12 @@ function loadWord(wordInfo) {
 
   wordValue.textContent = wordInfo.word;
 
+  const wordOrigin = document.createElement('h4');
+  wordOrigin.textContent = `Origin: ${wordInfo.origin}`;
+  
+  wordDefList.appendChild(wordOrigin);
   meaningsArray.forEach((meaning) => {
-    const partOfSpeech = document.createElement("h4");
+    const partOfSpeech = document.createElement("h5");
     partOfSpeech.textContent = meaning.partOfSpeech;
     wordDefList.appendChild(partOfSpeech);
     loadDef(meaning);

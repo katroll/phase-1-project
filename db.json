@@ -1,3 +1,447 @@
 {
-  "words": []
+  "words": [
+    [
+      {
+        "word": "house",
+        "phonetics": [],
+        "origin": "Old English hūs (noun), hūsian (verb), of Germanic origin; related to Dutch huis, German Haus (nouns), and Dutch huizen, German hausen (verbs).",
+        "meanings": [
+          {
+            "partOfSpeech": "noun",
+            "definitions": [
+              {
+                "definition": "a building for human habitation, especially one that consists of a ground floor and one or more upper storeys.",
+                "example": "my wife and I are moving to a new house",
+                "synonyms": [
+                  "home",
+                  "place of residence",
+                  "homestead",
+                  "lodging place",
+                  "a roof over one's head",
+                  "habitation",
+                  "residence",
+                  "dwelling",
+                  "dwelling place",
+                  "abode",
+                  "domicile"
+                ],
+                "antonyms": []
+              },
+              {
+                "definition": "a building in which people meet for a particular activity.",
+                "example": "a house of prayer",
+                "synonyms": [],
+                "antonyms": []
+              },
+              {
+                "definition": "a religious community that occupies a particular building.",
+                "example": "the Cistercian house at Clairvaux",
+                "synonyms": [],
+                "antonyms": []
+              },
+              {
+                "definition": "a legislative or deliberative assembly.",
+                "example": "the sixty-member National Council, the country's upper house",
+                "synonyms": [
+                  "legislative assembly",
+                  "legislative body",
+                  "chamber",
+                  "council",
+                  "parliament",
+                  "diet",
+                  "congress",
+                  "senate"
+                ],
+                "antonyms": []
+              },
+              {
+                "definition": "a style of electronic dance music typically having sparse, repetitive vocals and a fast beat.",
+                "example": "DJs specializing in techno, garage, and house",
+                "synonyms": [],
+                "antonyms": []
+              },
+              {
+                "definition": "a twelfth division of the celestial sphere, based on the positions of the ascendant and midheaven at a given time and place, and determined by any of a number of methods.",
+                "synonyms": [],
+                "antonyms": []
+              },
+              {
+                "definition": "old-fashioned term for bingo.",
+                "synonyms": [],
+                "antonyms": []
+              }
+            ]
+          },
+          {
+            "partOfSpeech": "adjective",
+            "definitions": [
+              {
+                "definition": "(of an animal or plant) kept in, frequenting, or infesting buildings.",
+                "synonyms": [],
+                "antonyms": []
+              },
+              {
+                "definition": "relating to a firm, institution, or society.",
+                "example": "a house journal",
+                "synonyms": [],
+                "antonyms": []
+              }
+            ]
+          },
+          {
+            "partOfSpeech": "verb",
+            "definitions": [
+              {
+                "definition": "provide with shelter or accommodation.",
+                "example": "they converted a disused cinema to house twelve employees",
+                "synonyms": [
+                  "accommodate",
+                  "provide accommodation for",
+                  "provide with accommodation",
+                  "give accommodation to",
+                  "make space for",
+                  "make room for",
+                  "provide with a place to work",
+                  "harbour",
+                  "lodge",
+                  "quarter",
+                  "board",
+                  "billet",
+                  "take in",
+                  "provide shelter for",
+                  "shelter",
+                  "sleep",
+                  "put up",
+                  "give a bed to",
+                  "provide with a place to sleep"
+                ],
+                "antonyms": [
+                  "evict"
+                ]
+              },
+              {
+                "definition": "provide space for; contain or accommodate.",
+                "example": "the museum houses a collection of Roman sculpture",
+                "synonyms": [
+                  "contain",
+                  "hold",
+                  "store",
+                  "cover",
+                  "protect",
+                  "enclose",
+                  "encase",
+                  "sheathe",
+                  "keep safe"
+                ],
+                "antonyms": [
+                  "expose"
+                ]
+              },
+              {
+                "definition": "eat the whole of (something), typically very quickly.",
+                "example": "it could be that I just housed a massive burrito, but I don't feel good",
+                "synonyms": [],
+                "antonyms": []
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "word": "part",
+        "phonetic": "pɑːt",
+        "phonetics": [
+          {
+            "text": "pɑːt",
+            "audio": "//ssl.gstatic.com/dictionary/static/sounds/20200429/part--_gb_1.mp3"
+          }
+        ],
+        "origin": "Old English (denoting a part of speech), from Latin pars, part- . The verb (originally in Middle English in the sense ‘divide into parts’) is from Old French partir, from Latin partire, partiri ‘divide, share’.",
+        "meanings": [
+          {
+            "partOfSpeech": "noun",
+            "definitions": [
+              {
+                "definition": "an amount or section which, when combined with others, makes up the whole of something.",
+                "example": "divide the circle into three equal parts",
+                "synonyms": [
+                  "bit",
+                  "slice",
+                  "chunk",
+                  "lump",
+                  "hunk",
+                  "wedge",
+                  "fragment",
+                  "scrap",
+                  "segment",
+                  "piece",
+                  "portion",
+                  "share",
+                  "proportion",
+                  "percentage",
+                  "fraction",
+                  "division",
+                  "section"
+                ],
+                "antonyms": [
+                  "whole",
+                  "entirety"
+                ]
+              },
+              {
+                "definition": "some but not all of something.",
+                "example": "the painting tells only part of the story",
+                "synonyms": [],
+                "antonyms": []
+              },
+              {
+                "definition": "a role played by an actor or actress.",
+                "example": "she played a lot of leading parts",
+                "synonyms": [
+                  "role",
+                  "theatrical role",
+                  "character",
+                  "persona",
+                  "representation",
+                  "portrayal",
+                  "depiction"
+                ],
+                "antonyms": []
+              },
+              {
+                "definition": "the contribution made by someone or something to an action or situation.",
+                "example": "he played a key part in ending the revolt",
+                "synonyms": [
+                  "involvement",
+                  "role",
+                  "function",
+                  "hand",
+                  "job",
+                  "task",
+                  "work",
+                  "responsibility",
+                  "capacity",
+                  "post",
+                  "position",
+                  "office",
+                  "participation",
+                  "bit",
+                  "contribution",
+                  "concern",
+                  "province"
+                ],
+                "antonyms": []
+              },
+              {
+                "definition": "abilities.",
+                "synonyms": [],
+                "antonyms": []
+              },
+              {
+                "definition": "a line of scalp revealed in a person's hair by combing the hair away in opposite directions on either side; a parting.",
+                "example": "the part in her hair was white and straight",
+                "synonyms": [],
+                "antonyms": []
+              }
+            ]
+          },
+          {
+            "partOfSpeech": "verb",
+            "definitions": [
+              {
+                "definition": "(of two things) move away from each other.",
+                "example": "his lips parted in a smile",
+                "synonyms": [],
+                "antonyms": []
+              },
+              {
+                "definition": "leave someone's company.",
+                "example": "there was a good deal of kissing before we parted",
+                "synonyms": [
+                  "leave",
+                  "take one's leave",
+                  "say goodbye/farewell/adieu",
+                  "say one's goodbyes",
+                  "say/make one's farewells",
+                  "separate",
+                  "break up",
+                  "go one's (separate) ways",
+                  "take oneself off",
+                  "set off",
+                  "be on one's way",
+                  "go",
+                  "go away",
+                  "get going",
+                  "depart",
+                  "be off",
+                  "split",
+                  "push off",
+                  "hit the road",
+                  "skedaddle",
+                  "scram",
+                  "shove off"
+                ],
+                "antonyms": [
+                  "arrive",
+                  "meet"
+                ]
+              },
+              {
+                "definition": "give up possession of; hand over.",
+                "example": "even quite small companies parted with large sums",
+                "synonyms": [
+                  "give up",
+                  "relinquish",
+                  "forgo",
+                  "surrender",
+                  "hand over",
+                  "deliver up",
+                  "let go of",
+                  "renounce",
+                  "give away",
+                  "dispose of",
+                  "discard",
+                  "abandon",
+                  "sacrifice",
+                  "yield",
+                  "cede"
+                ],
+                "antonyms": [
+                  "acquire"
+                ]
+              },
+              {
+                "definition": "separate (the hair of the head on either side of the parting) with a comb.",
+                "example": "his hair was centrally parted",
+                "synonyms": [],
+                "antonyms": []
+              }
+            ]
+          },
+          {
+            "partOfSpeech": "adverb",
+            "definitions": [
+              {
+                "definition": "to some extent; partly (often used to contrast different parts of something).",
+                "example": "the city is now part slum, part consumer paradise",
+                "synonyms": [
+                  "to a certain extent/degree",
+                  "to a limited extent/degree",
+                  "to some extent/degree",
+                  "partly",
+                  "partially",
+                  "in part",
+                  "half",
+                  "in some measure",
+                  "relatively",
+                  "comparatively",
+                  "moderately",
+                  "(up) to a point",
+                  "a little",
+                  "somewhat",
+                  "not totally",
+                  "not wholly",
+                  "not entirely",
+                  "not fully",
+                  "incompletely",
+                  "nearly",
+                  "very nearly",
+                  "almost",
+                  "just about",
+                  "all but",
+                  "slightly",
+                  "barely",
+                  "scarcely",
+                  "fractionally",
+                  "inadequately",
+                  "insufficiently",
+                  "not nearly"
+                ],
+                "antonyms": [
+                  "completely"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "word": "flower",
+        "phonetic": "ˈflaʊə",
+        "phonetics": [
+          {
+            "text": "ˈflaʊə",
+            "audio": "//ssl.gstatic.com/dictionary/static/sounds/20200429/flower--_gb_1.mp3"
+          }
+        ],
+        "origin": "Middle English flour, from Old French flour, flor, from Latin flos, flor- . The original spelling was no longer in use by the late 17th century except in its specialized sense ‘ground grain’ (see flour).",
+        "meanings": [
+          {
+            "partOfSpeech": "noun",
+            "definitions": [
+              {
+                "definition": "the seed-bearing part of a plant, consisting of reproductive organs (stamens and carpels) that are typically surrounded by a brightly coloured corolla (petals) and a green calyx (sepals).",
+                "synonyms": [
+                  "bloom",
+                  "blossom",
+                  "floweret",
+                  "floret"
+                ],
+                "antonyms": []
+              },
+              {
+                "definition": "the finest individuals out of a number of people or things.",
+                "example": "he wasted the flower of French youth on his dreams of empire",
+                "synonyms": [
+                  "best",
+                  "finest",
+                  "top",
+                  "pick",
+                  "choice",
+                  "choicest",
+                  "prime",
+                  "cream",
+                  "prize",
+                  "treasure",
+                  "pearl",
+                  "gem",
+                  "jewel",
+                  "the jewel in the crown",
+                  "the crème de la crème",
+                  "first class",
+                  "elite",
+                  "elect",
+                  "the tops"
+                ],
+                "antonyms": [
+                  "dregs"
+                ]
+              }
+            ]
+          },
+          {
+            "partOfSpeech": "verb",
+            "definitions": [
+              {
+                "definition": "(of a plant) produce flowers; bloom.",
+                "example": "Michaelmas daisies can flower as late as October",
+                "synonyms": [],
+                "antonyms": []
+              },
+              {
+                "definition": "be in or reach an optimum stage of development; develop fully and richly.",
+                "example": "she flowered into as striking a beauty as her mother",
+                "synonyms": [],
+                "antonyms": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  ]
 }
