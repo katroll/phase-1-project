@@ -132,19 +132,22 @@ function loadSearchHist() {
     .then((words) => {
       words.forEach((word) => {
         addSearchHist(word);
-
-        clearBtn.addEventListener("click", () => {
-          searchList.innerHTML = "";
-          clearHist(words);
-          console.log(words);
-        });
+      });
+      clearBtn.addEventListener("click", () => {
+        searchList.innerHTML = "";
+        console.log('words: ', words)
+        words.forEach(word => {
+          console.log('trying to delete: ', word[0].word );
+          clearHist(word[0].word);
+        })
+        console.log(words);
       });
     })
     .catch((error) => error.message);
 }
 
-function clearHist() {
-  fetch(`http://localhost:3000/words/`, {
+function clearHist(word) {
+  fetch(`http://localhost:3000/words/${word}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
   });
