@@ -6,7 +6,6 @@ function init() {
   loadSearchHist();
 }
 
-
 function initSearchBar() {
   const searchForm = document.querySelector("#search-form");
 
@@ -96,6 +95,7 @@ function loadSynonyms(word) {
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then((resp) => resp.json())
     .then((wordInfo) => {
+
       if (
         wordInfo.message ===
         "Sorry pal, we couldn't find definitions for the word you were looking for."
@@ -138,9 +138,10 @@ function loadSynonyms(word) {
 }
 
 function postSearchHistory(wordInfo) {
-  fetch("http://localhost:3000/words", {
+  fetch("http://localhost:3000/words/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
+    params: { _limit: 2 },
     body: JSON.stringify(wordInfo),
   })
     .then((resp) => resp.json())
@@ -160,19 +161,19 @@ function loadSearchHist() {
       });
       clearBtn.addEventListener("click", () => {
         searchList.innerHTML = "";
-        console.log('words: ', words)
-        words.forEach(word => {
-          console.log('trying to delete: ', word[0].word );
-          clearHist(word[0].word);
-        })
-        console.log(words);
+        for (let i = 0; i < 20; i++) {
+          try {
+            clearHist(i);
+          } catch {
+            console.log("skipped");
+          }
+        }
       });
-    })
-    .catch((error) => error.message);
+    });
 }
 
-function clearHist(word) {
-  fetch(`http://localhost:3000/words/${word}`, {
+function clearHist(id) {
+  fetch(`http://localhost:3000/words/${id}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
   });
