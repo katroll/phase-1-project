@@ -93,18 +93,23 @@ function loadSynonyms(word) {
   const wordValue = document.querySelector("#t-word-value");
   const wordSynList = document.querySelector("#synonym-list");
 
-  wordValue.textContent = word;
-
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then((resp) => resp.json())
     .then((wordInfo) => {
-
+      if (
+        wordInfo.message ===
+        "Sorry pal, we couldn't find definitions for the word you were looking for."
+      ) {
+        wordSynList.innerHTML = "";
+        wordValue.textContent = "Well I'll be damned, we couldn't find the word you were looking for.";
+      } else {
       // if (
       //   wordInfo[0].meanings[0].definitions[0].synonyms.length === 0
       //   ) {
       //   wordSynList.innerHTML = "";
       //   wordValue.textContent = "Well I'll be damned, we couldn't find any synonyms for the word you were looking for.";
       //   } else {
+      wordValue.textContent = word;
       wordInfo.forEach(word => {
         word.meanings.forEach(meaning => {
           meaning.definitions.forEach((def) => {
@@ -122,10 +127,11 @@ function loadSynonyms(word) {
       })
       //}
     });
+  }
 
     if(!wordSynList.hasChildNodes()) {
       wordSynList.innerHTML = "";
-      wordValue.textContent = "Well I'll be damned, we couldn't find any synonyms for the word you were looking for.";
+      wordValue.textContent = "Well I'll be damned, we couldn't find any synonyms for the word you're looking for.";
     }
 
   });
