@@ -98,24 +98,31 @@ function loadSynonyms(word) {
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then((resp) => resp.json())
     .then((wordInfo) => {
+
       if (
         wordInfo[0].meanings[0].definitions[0].synonyms.length === 0
         ) {
         wordSynList.innerHTML = "";
         wordValue.textContent = "Well I'll be damned, we couldn't find any synonyms for the word you were looking for.";
         } else {
-      const synonymsArray = wordInfo[0].meanings[0].definitions[0].synonyms;
-      synonymsArray.forEach((synonym) => {
-        const eachSynonym = document.createElement("li");
-        eachSynonym.textContent = synonym;
-        eachSynonym.classList.add("syn-list-item");
-        wordSynList.appendChild(eachSynonym);
+      wordInfo.forEach(word => {
+        word.meanings.forEach(meaning => {
+          meaning.definitions.forEach((def) => {
+            def.synonyms.forEach(synonym => { 
+              const eachSynonym = document.createElement("li");
+              eachSynonym.textContent = synonym;
+              eachSynonym.classList.add("syn-list-item");
+              wordSynList.appendChild(eachSynonym);
 
-        eachSynonym.addEventListener("click", () => {
-          getDefinition(eachSynonym.textContent);
-        });
-      });
-    };
+              eachSynonym.addEventListener("click", () => {
+              getDefinition(eachSynonym.textContent);
+            });
+          });
+        })
+      })
+      }
+    });
+
   });
 }
 
@@ -139,19 +146,22 @@ function loadSearchHist() {
     .then((words) => {
       words.forEach((word) => {
         addSearchHist(word);
-
-        clearBtn.addEventListener("click", () => {
-          searchList.innerHTML = "";
-          clearHist(words);
-          console.log(words);
-        });
+      });
+      clearBtn.addEventListener("click", () => {
+        searchList.innerHTML = "";
+        console.log('words: ', words)
+        words.forEach(word => {
+          console.log('trying to delete: ', word[0].word );
+          clearHist(word[0].word);
+        })
+        console.log(words);
       });
     })
     .catch((error) => error.message);
 }
 
-function clearHist() {
-  fetch(`http://localhost:3000/words/`, {
+function clearHist(word) {
+  fetch(`http://localhost:3000/words/${word}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
   });
