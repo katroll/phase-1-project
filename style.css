@@ -95,6 +95,7 @@ body {
 #t-word-value {
   display: flex;
   justify-content: center;
+  margin: 10px;
 }
 
 #t-word-value {
@@ -133,4 +134,15 @@ body {
 
 #word-def-list > p {
   font-style: italic;
+}
+
+.title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#soundBtn {
+  cursor: pointer;
+  opacity: 0;
 }
