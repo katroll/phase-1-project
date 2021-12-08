@@ -1,3 +1,216 @@
 {
-  "words": []
+  "words": [
+    {
+      "chop": [
+        {
+          "word": "chop",
+          "phonetic": "tʃɒp",
+          "phonetics": [
+            {
+              "text": "tʃɒp",
+              "audio": "//ssl.gstatic.com/dictionary/static/sounds/20200429/chop--_gb_1.mp3"
+            }
+          ],
+          "origin": "late Middle English: variant of chap1.",
+          "meanings": [
+            {
+              "partOfSpeech": "verb",
+              "definitions": [
+                {
+                  "definition": "cut (something) into pieces with repeated sharp blows of an axe or knife.",
+                  "example": "they chopped up the pulpit for firewood",
+                  "synonyms": [
+                    "cut up",
+                    "cut into pieces",
+                    "chop up",
+                    "cube",
+                    "dice",
+                    "mince",
+                    "hash",
+                    "hew",
+                    "split",
+                    "cleave"
+                  ],
+                  "antonyms": []
+                },
+                {
+                  "definition": "abolish or reduce the size of (something) in a way regarded as ruthless.",
+                  "example": "their training courses are to be chopped",
+                  "synonyms": [
+                    "reduce drastically",
+                    "cut",
+                    "abolish",
+                    "scrap",
+                    "axe",
+                    "slash"
+                  ],
+                  "antonyms": []
+                }
+              ]
+            },
+            {
+              "partOfSpeech": "noun",
+              "definitions": [
+                {
+                  "definition": "a downward cutting blow or movement, typically with the hand.",
+                  "example": "an effective chop to the back of the neck",
+                  "synonyms": [],
+                  "antonyms": []
+                },
+                {
+                  "definition": "dismissal from employment.",
+                  "example": "hundreds more workers have been given the chop",
+                  "synonyms": [
+                    "notice",
+                    "one's marching orders",
+                    "the sack",
+                    "the boot",
+                    "the (old) heave-ho",
+                    "the push",
+                    "the bullet",
+                    "one's cards",
+                    "the elbow"
+                  ],
+                  "antonyms": []
+                },
+                {
+                  "definition": "a thick slice of meat, especially pork or lamb, adjacent to and often including a rib.",
+                  "example": "he lived on liver or chops",
+                  "synonyms": [],
+                  "antonyms": []
+                },
+                {
+                  "definition": "a person's share of something.",
+                  "synonyms": [],
+                  "antonyms": []
+                },
+                {
+                  "definition": "crushed or ground grain used as animal feed.",
+                  "example": "the pile of chop was dropped into the calves' feeder",
+                  "synonyms": [],
+                  "antonyms": []
+                },
+                {
+                  "definition": "the broken motion of water, owing to the action of the wind against the tide.",
+                  "example": "we started our run into a two-foot chop",
+                  "synonyms": [],
+                  "antonyms": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "word": "chop",
+          "phonetic": "tʃɒp",
+          "phonetics": [
+            {
+              "text": "tʃɒp",
+              "audio": "//ssl.gstatic.com/dictionary/static/sounds/20200429/chop--_gb_1.mp3"
+            }
+          ],
+          "origin": "early 19th century: from Hindi chāp ‘stamp, brand’ (see chaap).",
+          "meanings": [
+            {
+              "partOfSpeech": "noun",
+              "definitions": [
+                {
+                  "definition": "a trademark; a brand of goods.",
+                  "synonyms": [],
+                  "antonyms": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "word": "chop",
+          "phonetic": "tʃɒp",
+          "phonetics": [
+            {
+              "text": "tʃɒp",
+              "audio": "//ssl.gstatic.com/dictionary/static/sounds/20200429/chop--_gb_1.mp3"
+            }
+          ],
+          "origin": "of uncertain origin.",
+          "meanings": [
+            {
+              "partOfSpeech": "verb",
+              "definitions": [
+                {
+                  "definition": "eat.",
+                  "example": "come chop the soup I made for you",
+                  "synonyms": [],
+                  "antonyms": []
+                },
+                {
+                  "definition": "acquire (money) quickly or easily, typically by dishonest means.",
+                  "example": "we're chopping money like we're just plucking it from a tree",
+                  "synonyms": [],
+                  "antonyms": []
+                }
+              ]
+            },
+            {
+              "partOfSpeech": "noun",
+              "definitions": [
+                {
+                  "definition": "a small dish that can conveniently be eaten with the fingers, typically served as an appetizer.",
+                  "example": "wedding guests have come to expect a good selection of mouth-watering small chops",
+                  "synonyms": [],
+                  "antonyms": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "id": 1
+    },
+    {
+      "vista": [
+        {
+          "word": "vista",
+          "phonetic": "ˈvɪstə",
+          "phonetics": [
+            {
+              "text": "ˈvɪstə",
+              "audio": "//ssl.gstatic.com/dictionary/static/sounds/20200429/vista--_gb_1.mp3"
+            }
+          ],
+          "origin": "mid 17th century: from Italian, literally ‘view’, from visto ‘seen’, past participle of vedere ‘see’, from Latin videre .",
+          "meanings": [
+            {
+              "partOfSpeech": "noun",
+              "definitions": [
+                {
+                  "definition": "a pleasing view.",
+                  "example": "sweeping lawns and landscaped vistas",
+                  "synonyms": [
+                    "view",
+                    "prospect",
+                    "panorama",
+                    "aspect",
+                    "perspective",
+                    "spectacle",
+                    "sight",
+                    "scenery",
+                    "landscape",
+                    "seascape",
+                    "riverscape",
+                    "townscape",
+                    "cityscape",
+                    "snowscape",
+                    "outlook"
+                  ],
+                  "antonyms": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "id": 2
+    }
+  ]
 }
