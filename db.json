@@ -1,29 +1,22 @@
 {
   "words": [
     {
-      "remount": [
+      "shipmaster": [
         {
-          "word": "remount",
-          "phonetics": [],
+          "word": "shipmaster",
+          "phonetic": "ˈʃɪpmɑːstə",
+          "phonetics": [
+            {
+              "text": "ˈʃɪpmɑːstə",
+              "audio": "//ssl.gstatic.com/dictionary/static/sounds/20200429/shipmaster--_gb_1.8.mp3"
+            }
+          ],
           "meanings": [
             {
-              "partOfSpeech": "verb",
+              "partOfSpeech": "noun",
               "definitions": [
                 {
-                  "definition": "get on (a horse or vehicle) in order to ride it again.",
-                  "example": "she went to remount her horse",
-                  "synonyms": [],
-                  "antonyms": []
-                },
-                {
-                  "definition": "attach to a new frame or setting.",
-                  "example": "remount the best photos in glass-fronted mounts",
-                  "synonyms": [],
-                  "antonyms": []
-                },
-                {
-                  "definition": "organize and embark on (a course of action) again.",
-                  "example": "the raid was remounted in August",
+                  "definition": "a ship's captain.",
                   "synonyms": [],
                   "antonyms": []
                 }
@@ -33,6 +26,80 @@
         }
       ],
       "id": 1
+    },
+    {
+      "infirmary": [
+        {
+          "word": "infirmary",
+          "phonetic": "ɪnˈfəːm(ə)ri",
+          "phonetics": [
+            {
+              "text": "ɪnˈfəːm(ə)ri",
+              "audio": "//ssl.gstatic.com/dictionary/static/sounds/20200429/infirmary--_gb_1.8.mp3"
+            }
+          ],
+          "origin": "late Middle English: from medieval Latin infirmaria, from Latin infirmus (see infirm).",
+          "meanings": [
+            {
+              "partOfSpeech": "noun",
+              "definitions": [
+                {
+                  "definition": "a hospital.",
+                  "example": "the Edinburgh Royal Infirmary",
+                  "synonyms": [],
+                  "antonyms": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "id": 2
+    },
+    {
+      "dilettante": [
+        {
+          "word": "dilettante",
+          "phonetic": "ˌdɪlɪˈtanteɪ",
+          "phonetics": [
+            {
+              "text": "ˌdɪlɪˈtanteɪ",
+              "audio": "//ssl.gstatic.com/dictionary/static/sounds/20200429/dilettante--_gb_1.4.mp3"
+            },
+            {
+              "text": "ˌdɪlɪˈtanti"
+            }
+          ],
+          "origin": "mid 18th century: from Italian, ‘person loving the arts’, from dilettare ‘to delight’, from Latin delectare .",
+          "meanings": [
+            {
+              "partOfSpeech": "noun",
+              "definitions": [
+                {
+                  "definition": "a person who cultivates an area of interest, such as the arts, without real commitment or knowledge.",
+                  "example": "a wealthy literary dilettante",
+                  "synonyms": [
+                    "dabbler",
+                    "potterer",
+                    "tinkerer",
+                    "trifler",
+                    "dallier",
+                    "amateur",
+                    "non-professional",
+                    "non-specialist",
+                    "layman",
+                    "layperson"
+                  ],
+                  "antonyms": [
+                    "professional"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "id": 3
     }
   ]
 }
