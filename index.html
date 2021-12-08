@@ -1,7 +1,7 @@
 <html>
     <head>
     <title>Flatiron Project One</title>
-    <script src="index.js"></script>
+    <script defer src="index.js"></script>
     <link rel="stylesheet" href="style.css"></link>
     </head>
     <body>
@@ -14,6 +14,13 @@
                 <div id='search-hist-list'></div>
             </div>
             <div id='search-container'>
+                <div id="radio-selector">
+                    <p>What do you need?</p>
+                    <input type="radio" name="type" value="dictionary" id="dictionary" checked>
+                    <label for="dictionary">Dictionary</label>
+                    <input type="radio" name="type" value="thesaurus" id="thesaurus">
+                    <label for="thesaurus">Thesaurus</label>
+            </div>
                 <div id='search'>
                     <div>
                         <h1>Dictionary</h1>
@@ -25,7 +32,7 @@
                         </form>
                     </div>
                     <div id ='list-padding'>
-                        <h2 id='word-value'></h2>
+                        <h3 id='word-value'></h2>
                         <div>
                             <ul id='word-def-list'></ul>
                         </div>
