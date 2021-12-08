@@ -9,17 +9,16 @@ function init() {
 }
 
 function loadRandomDef() {
-  fetch('https://random-word-api.herokuapp.com/word?number=1') 
-  .then(resp => resp.json()) 
-  .then(word => {
-
-    getDefinition(word, false).then(wordOk => {
-      console.log('then: ', wordOk)
-      if(!wordOk) {
-        loadRandomDef();
-      }
-    })
-  })
+  fetch("https://random-word-api.herokuapp.com/word?number=1")
+    .then((resp) => resp.json())
+    .then((word) => {
+      getDefinition(word, false).then((wordOk) => {
+        console.log("then: ", wordOk);
+        if (!wordOk) {
+          loadRandomDef();
+        }
+      });
+    });
 }
 
 function initSearchBar() {
@@ -42,16 +41,17 @@ function initThesaurusSearchBar() {
     loadSynonyms(searchForm.querySelector("#t-word-search").value);
     e.target.reset();
   });
-
 }
-
 
 function getDefinition(word, updateDom) {
   return fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then((resp) => resp.json())
     .then((wordInfo) => {
-      if (wordInfo.message === "Sorry pal, we couldn't find definitions for the word you were looking for.") {
-        if(updateDom) {
+      if (
+        wordInfo.message ===
+        "Sorry pal, we couldn't find definitions for the word you were looking for."
+      ) {
+        if (updateDom) {
           document.querySelector("#word-def-list").innerHTML = "";
           document.querySelector("#word-value").textContent = wordInfo.message;
         }
@@ -69,7 +69,6 @@ function newSearch(wordInfo) {
   const wordDefList = document.querySelector("#word-def-list");
   wordDefList.innerHTML = "";
 
-
   wordInfo.forEach((word) => loadWord(word));
 }
 
@@ -80,12 +79,12 @@ function loadWord(wordInfo) {
 
   wordValue.textContent = wordInfo.word;
 
-  const wordOrigin = document.createElement('h4');
+  const wordOrigin = document.createElement("p");
   wordOrigin.textContent = `Origin: ${wordInfo.origin}`;
-  
+
   wordDefList.appendChild(wordOrigin);
   meaningsArray.forEach((meaning) => {
-    const partOfSpeech = document.createElement("h5");
+    const partOfSpeech = document.createElement("h3");
     partOfSpeech.textContent = meaning.partOfSpeech;
     wordDefList.appendChild(partOfSpeech);
     loadDef(meaning);
@@ -119,46 +118,46 @@ function loadSynonyms(word) {
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then((resp) => resp.json())
     .then((wordInfo) => {
-
       if (
         wordInfo.message ===
         "Sorry pal, we couldn't find definitions for the word you were looking for."
       ) {
         wordSynList.innerHTML = "";
-        wordValue.textContent = "Well I'll be damned, we couldn't find the word you were looking for.";
+        wordValue.textContent =
+          "Well I'll be damned, we couldn't find the word you were looking for.";
       } else {
-      // if (
-      //   wordInfo[0].meanings[0].definitions[0].synonyms.length === 0
-      //   ) {
-      //   wordSynList.innerHTML = "";
-      //   wordValue.textContent = "Well I'll be damned, we couldn't find any synonyms for the word you were looking for.";
-      //   } else {
-      wordValue.textContent = word;
-      wordInfo.forEach(word => {
-        word.meanings.forEach(meaning => {
-          meaning.definitions.forEach((def) => {
-            def.synonyms.forEach(synonym => { 
-              const eachSynonym = document.createElement("li");
-              eachSynonym.textContent = synonym;
-              eachSynonym.classList.add("syn-list-item");
-              wordSynList.appendChild(eachSynonym);
+        // if (
+        //   wordInfo[0].meanings[0].definitions[0].synonyms.length === 0
+        //   ) {
+        //   wordSynList.innerHTML = "";
+        //   wordValue.textContent = "Well I'll be damned, we couldn't find any synonyms for the word you were looking for.";
+        //   } else {
+        wordValue.textContent = word;
+        wordInfo.forEach((word) => {
+          word.meanings.forEach((meaning) => {
+            meaning.definitions.forEach((def) => {
+              def.synonyms.forEach((synonym) => {
+                const eachSynonym = document.createElement("li");
+                eachSynonym.textContent = synonym;
+                eachSynonym.classList.add("syn-list-item");
+                wordSynList.appendChild(eachSynonym);
 
-              eachSynonym.addEventListener("click", () => {
-              getDefinition(eachSynonym.textContent, true);
+                eachSynonym.addEventListener("click", () => {
+                  getDefinition(eachSynonym.textContent, true);
+                });
+              });
             });
           });
-        })
-      })
-      //}
+          //}
+        });
+      }
+
+      if (!wordSynList.hasChildNodes()) {
+        wordSynList.innerHTML = "";
+        wordValue.textContent =
+          "Well I'll be damned, we couldn't find any synonyms for the word you're looking for.";
+      }
     });
-  }
-
-    if(!wordSynList.hasChildNodes()) {
-      wordSynList.innerHTML = "";
-      wordValue.textContent = "Well I'll be damned, we couldn't find any synonyms for the word you're looking for.";
-    }
-
-  });
 }
 
 function postSearchHistory(wordInfo) {
@@ -167,11 +166,11 @@ function postSearchHistory(wordInfo) {
   fetch("http://localhost:3000/words/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({[wordInfo[0].word]: wordInfo}),
+    body: JSON.stringify({ [wordInfo[0].word]: wordInfo }),
   })
     .then((resp) => resp.json())
-    .then(wordObj => {
-      addSearchHist(wordObj[word])
+    .then((wordObj) => {
+      addSearchHist(wordObj[word]);
     })
     .catch((error) => error.message);
 }
@@ -180,11 +179,11 @@ function loadSearchHist() {
   fetch("http://localhost:3000/words")
     .then((resp) => resp.json())
     .then((words) => {
-      console.log(words)
+      console.log(words);
       words.forEach((word) => {
         console.log(Object.keys(word)[0]);
         addSearchHist(word[Object.keys(word)[0]]);
-      })
+      });
     });
 }
 
@@ -195,13 +194,13 @@ function initClearHist() {
   clearBtn.addEventListener("click", () => {
     searchList.innerHTML = "";
     fetch("http://localhost:3000/words")
-    .then(resp => resp.json())
-    .then(words => {
-      words.forEach(word => {
-      deleteWord(word.id)
-      })
-    })
-  })
+      .then((resp) => resp.json())
+      .then((words) => {
+        words.forEach((word) => {
+          deleteWord(word.id);
+        });
+      });
+  });
 }
 
 function deleteWord(id) {
@@ -210,14 +209,3 @@ function deleteWord(id) {
     headers: { "Content-Type": "application/json" },
   });
 }
-
-// const getPicture = (wordInfo) => {
-//   fetch(
-//     `https://www.brandonfowler.me/gimgapi/?q=dog&num=10&size=&color=&reuse=&type=&time=&format=read/1/`,
-//     {}
-//   )
-//     .then((res) => res.json())
-//     .then((img) => console.log(img));
-// };
-
-// getPicture();
