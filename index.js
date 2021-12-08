@@ -6,14 +6,14 @@ function init() {
   loadSearchHist();
   loadRandomDef();
   initClearHist();
+  initToggleDisplay();
 }
 
 function loadRandomDef() {
   fetch("https://random-word-api.herokuapp.com/word?number=1")
     .then((resp) => resp.json())
     .then((word) => {
-      getDefinition(word, false).then((wordOk) => {
-        console.log("then: ", wordOk);
+      getDefinition(word, false, true).then((wordOk) => {
         if (!wordOk) {
           loadRandomDef();
         }
@@ -43,7 +43,7 @@ function initThesaurusSearchBar() {
   });
 }
 
-function getDefinition(word, updateDom) {
+function getDefinition(word, updateDom, dontSave) {
   return fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then((resp) => resp.json())
     .then((wordInfo) => {
@@ -58,7 +58,9 @@ function getDefinition(word, updateDom) {
         return false;
       } else {
         newSearch(wordInfo);
-        postSearchHistory(wordInfo);
+        if (!dontSave) {
+          postSearchHistory(wordInfo);
+        }
         return true;
       }
     })
@@ -126,12 +128,6 @@ function loadSynonyms(word) {
         wordValue.textContent =
           "Well I'll be damned, we couldn't find the word you were looking for.";
       } else {
-        // if (
-        //   wordInfo[0].meanings[0].definitions[0].synonyms.length === 0
-        //   ) {
-        //   wordSynList.innerHTML = "";
-        //   wordValue.textContent = "Well I'll be damned, we couldn't find any synonyms for the word you were looking for.";
-        //   } else {
         wordValue.textContent = word;
         wordInfo.forEach((word) => {
           word.meanings.forEach((meaning) => {
@@ -143,12 +139,15 @@ function loadSynonyms(word) {
                 wordSynList.appendChild(eachSynonym);
 
                 eachSynonym.addEventListener("click", () => {
+                  document.querySelector("#t-search").style.display = "none";
+                  document.querySelector("#search").style.display = "flex";
+                  document.querySelector("#dictionary").checked = true;
+
                   getDefinition(eachSynonym.textContent, true);
                 });
               });
             });
           });
-          //}
         });
       }
 
@@ -179,9 +178,7 @@ function loadSearchHist() {
   fetch("http://localhost:3000/words")
     .then((resp) => resp.json())
     .then((words) => {
-      console.log(words);
       words.forEach((word) => {
-        console.log(Object.keys(word)[0]);
         addSearchHist(word[Object.keys(word)[0]]);
       });
     });
@@ -208,4 +205,24 @@ function deleteWord(id) {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
   });
+}
+
+function toggleDisplay(value) {
+  const dictionary = document.querySelector("#search");
+  const thesaurus = document.querySelector("#t-search");
+  console.log(value);
+  if (value === "dictionary") {
+    thesaurus.style.display = "none";
+    dictionary.style.display = "flex";
+  } else if (value === "thesaurus") {
+    thesaurus.style.display = "flex";
+    dictionary.style.display = "none";
+  }
+}
+
+function initToggleDisplay() {
+  const selectDict = document.querySelector("#dictionary");
+  const selectThes = document.querySelector("#thesaurus");
+  selectDict.addEventListener("click", (e) => toggleDisplay(e.target.value));
+  selectThes.addEventListener("click", (e) => toggleDisplay(e.target.value));
 }
