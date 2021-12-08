@@ -99,6 +99,7 @@ function loadWord(wordInfo) {
     wordDefList.appendChild(partOfSpeech);
     loadDef(meaning);
   });
+  loadAudio(wordInfo);
 }
 
 //loads definition within each part of speech
@@ -109,6 +110,20 @@ function loadDef(meaning) {
     const newDef = document.createElement("li");
     newDef.textContent = def.definition;
     wordDefList.appendChild(newDef);
+  });
+}
+
+//loads audio from db.json file
+function loadAudio(wordInfo) {
+  const audio = document.querySelector("#audioPlay");
+  const btn = document.querySelector("#soundBtn");
+  const sound = wordInfo.phonetics[0].audio;
+
+  audio.src = `https:${sound}`;
+  audio.volume = 0.3;
+  btn.style.opacity = 1;
+  btn.addEventListener("click", () => {
+    audio.play();
   });
 }
 
