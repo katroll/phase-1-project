@@ -31,6 +31,7 @@ body {
 
 .history-li {
   text-align: center;
+  cursor: pointer;
 }
 
 #search-history h3 {
@@ -56,6 +57,27 @@ body {
   padding: 10px;
   box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 25%);
   margin-bottom: 15px;
+  transition: opacity 0.5s ease-in;
+}
+
+#radio-selector {
+  width: 800px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(208, 208, 211);
+  padding: 10px;
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 25%);
+  margin-bottom: 15px;
+}
+
+#search {
+  display: flex;
+}
+
+#t-search {
+  display: none;
 }
 
 #word-search,
@@ -106,6 +128,7 @@ body {
   width: 140px;
   height: 40px;
   list-style: none;
+  cursor: pointer;
 }
 
 #word-def-list > p {
