@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", init);
 
+//calls functions needed to init buttons and searches
 function init() {
   initSearchBar();
   initThesaurusSearchBar();
@@ -9,6 +10,7 @@ function init() {
   initToggleDisplay();
 }
 
+//uses a random word API to get a random word and pass it to the getDefinition when page loads
 function loadRandomDef() {
   fetch("https://random-word-api.herokuapp.com/word?number=1")
     .then((resp) => resp.json())
@@ -21,6 +23,7 @@ function loadRandomDef() {
     });
 }
 
+//initialiazes search bar for dictionary
 function initSearchBar() {
   const searchForm = document.querySelector("#search-form");
 
@@ -31,6 +34,7 @@ function initSearchBar() {
   });
 }
 
+//initializes search bar for thesaurus
 function initThesaurusSearchBar() {
   const searchForm = document.querySelector("#t-search-form");
   const thesList = document.querySelector("#synonym-list");
@@ -43,6 +47,7 @@ function initThesaurusSearchBar() {
   });
 }
 
+//fetches word object from dictionary API
 function getDefinition(word, updateDom, dontSave) {
   return fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then((resp) => resp.json())
@@ -67,6 +72,7 @@ function getDefinition(word, updateDom, dontSave) {
     .catch((error) => error.message);
 }
 
+//begins loading definition
 function newSearch(wordInfo) {
   const wordDefList = document.querySelector("#word-def-list");
   wordDefList.innerHTML = "";
@@ -74,6 +80,7 @@ function newSearch(wordInfo) {
   wordInfo.forEach((word) => loadWord(word));
 }
 
+//loads part speech speech of the definition
 function loadWord(wordInfo) {
   const meaningsArray = wordInfo.meanings;
   const wordValue = document.querySelector("#word-value");
@@ -93,6 +100,7 @@ function loadWord(wordInfo) {
   });
 }
 
+//loads definition within each part of speech
 function loadDef(meaning) {
   const wordDefList = document.querySelector("#word-def-list");
 
@@ -103,6 +111,7 @@ function loadDef(meaning) {
   });
 }
 
+//adds word to DOM in search history bar
 function addSearchHist(wordInfo) {
   const searchList = document.querySelector("#search-hist-list");
   const newWord = document.createElement("li");
@@ -113,6 +122,7 @@ function addSearchHist(wordInfo) {
   searchList.appendChild(newWord);
 }
 
+//loads synonyms for all word uses when searched
 function loadSynonyms(word) {
   const wordValue = document.querySelector("#t-word-value");
   const wordSynList = document.querySelector("#synonym-list");
@@ -159,6 +169,7 @@ function loadSynonyms(word) {
     });
 }
 
+//POSTS search history to db.json
 function postSearchHistory(wordInfo) {
   const word = wordInfo[0].word;
 
@@ -174,6 +185,7 @@ function postSearchHistory(wordInfo) {
     .catch((error) => error.message);
 }
 
+//loads words in db.json to search history bar upon loading the page
 function loadSearchHist() {
   fetch("http://localhost:3000/words")
     .then((resp) => resp.json())
@@ -184,6 +196,7 @@ function loadSearchHist() {
     });
 }
 
+//initializes clear history button
 function initClearHist() {
   const searchList = document.querySelector("#search-hist-list");
   const clearBtn = document.querySelector("#clear-hist-btn");
@@ -200,6 +213,7 @@ function initClearHist() {
   });
 }
 
+//DELETES word in db.json file
 function deleteWord(id) {
   fetch(`http://localhost:3000/words/${id}`, {
     method: "DELETE",
