@@ -5,6 +5,7 @@ function init() {
   initThesaurusSearchBar();
   loadSearchHist();
   loadRandomDef();
+  initClearHist();
 }
 
 function loadRandomDef() {
@@ -161,41 +162,49 @@ function loadSynonyms(word) {
 }
 
 function postSearchHistory(wordInfo) {
+  const word = wordInfo[0].word;
+
   fetch("http://localhost:3000/words/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    params: { _limit: 2 },
-    body: JSON.stringify({'word': wordInfo}),
+    body: JSON.stringify({[wordInfo[0].word]: wordInfo}),
   })
     .then((resp) => resp.json())
-    .then((wordInfo) => addSearchHist(wordInfo))
+    .then(wordObj => {
+      addSearchHist(wordObj[word])
+    })
     .catch((error) => error.message);
 }
 
 function loadSearchHist() {
-  const searchList = document.querySelector("#search-hist-list");
-  const clearBtn = document.querySelector("#clear-hist-btn");
-
   fetch("http://localhost:3000/words")
     .then((resp) => resp.json())
     .then((words) => {
+      console.log(words)
       words.forEach((word) => {
-        addSearchHist(word);
-      });
-      clearBtn.addEventListener("click", () => {
-        searchList.innerHTML = "";
-        for (let i = 0; i < 20; i++) {
-          try {
-            clearHist(i);
-          } catch {
-            console.log("skipped");
-          }
-        }
-      });
+        console.log(Object.keys(word)[0]);
+        addSearchHist(word[Object.keys(word)[0]]);
+      })
     });
 }
 
-function clearHist(id) {
+function initClearHist() {
+  const searchList = document.querySelector("#search-hist-list");
+  const clearBtn = document.querySelector("#clear-hist-btn");
+
+  clearBtn.addEventListener("click", () => {
+    searchList.innerHTML = "";
+    fetch("http://localhost:3000/words")
+    .then(resp => resp.json())
+    .then(words => {
+      words.forEach(word => {
+      deleteWord(word.id)
+      })
+    })
+  })
+}
+
+function deleteWord(id) {
   fetch(`http://localhost:3000/words/${id}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
