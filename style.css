@@ -107,3 +107,7 @@ body {
   height: 40px;
   list-style: none;
 }
+
+#word-def-list > p {
+  font-style: italic;
+}

@@ -1,38 +1,3 @@
 {
-  "words": [
-    {
-      "remount": [
-        {
-          "word": "remount",
-          "phonetics": [],
-          "meanings": [
-            {
-              "partOfSpeech": "verb",
-              "definitions": [
-                {
-                  "definition": "get on (a horse or vehicle) in order to ride it again.",
-                  "example": "she went to remount her horse",
-                  "synonyms": [],
-                  "antonyms": []
-                },
-                {
-                  "definition": "attach to a new frame or setting.",
-                  "example": "remount the best photos in glass-fronted mounts",
-                  "synonyms": [],
-                  "antonyms": []
-                },
-                {
-                  "definition": "organize and embark on (a course of action) again.",
-                  "example": "the raid was remounted in August",
-                  "synonyms": [],
-                  "antonyms": []
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "id": 1
-    }
-  ]
+  "words": []
 }
