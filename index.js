@@ -90,8 +90,9 @@ function loadWord(wordInfo) {
 
   const wordOrigin = document.createElement("p");
   wordOrigin.textContent = `Origin: ${wordInfo.origin}`;
-
+  
   wordDefList.appendChild(wordOrigin);
+  
   meaningsArray.forEach((meaning) => {
     const partOfSpeech = document.createElement("h3");
     partOfSpeech.textContent = meaning.partOfSpeech;
