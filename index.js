@@ -59,6 +59,7 @@ function getDefinition(word, updateDom, dontSave) {
         if (updateDom) {
           document.querySelector("#word-def-list").innerHTML = "";
           document.querySelector("#word-value").textContent = wordInfo.message;
+          document.querySelector("#soundBtn").style.opacity = 0;
         }
         return false;
       } else {
@@ -90,9 +91,9 @@ function loadWord(wordInfo) {
 
   const wordOrigin = document.createElement("p");
   wordOrigin.textContent = `Origin: ${wordInfo.origin}`;
-  
+
   wordDefList.appendChild(wordOrigin);
-  
+
   meaningsArray.forEach((meaning) => {
     const partOfSpeech = document.createElement("h3");
     partOfSpeech.textContent = meaning.partOfSpeech;
