@@ -81,7 +81,7 @@ function newSearch(wordInfo) {
   wordInfo.forEach((word) => loadWord(word));
 }
 
-//loads part speech speech of the definition
+//loads part of speech of the definition
 function loadWord(wordInfo) {
   const meaningsArray = wordInfo.meanings;
   const wordValue = document.querySelector("#word-value");
@@ -114,7 +114,7 @@ function loadDef(meaning) {
   });
 }
 
-//loads audio from db.json file
+//loads audio from word object
 function loadAudio(wordInfo) {
   const audio = document.querySelector("#audioPlay");
   const btn = document.querySelector("#soundBtn");
@@ -238,6 +238,7 @@ function deleteWord(id) {
   });
 }
 
+//click event of toggle bar
 function toggleDisplay(value) {
   const dictionary = document.querySelector("#search");
   const thesaurus = document.querySelector("#t-search");
@@ -251,6 +252,7 @@ function toggleDisplay(value) {
   }
 }
 
+//initializes toggle bar
 function initToggleDisplay() {
   const selectDict = document.querySelector("#dictionary");
   const selectThes = document.querySelector("#thesaurus");
